@@ -1,0 +1,22 @@
+;
+;
+;
+$TTL	604800
+@	IN	SOA	ns.stocklist-rice.com. root.stocklist-rice.com. (
+			      2		; Serial
+			  28800     ; Refresh
+			  14400		; Retry
+			3600000		; Expire
+			 604800 )	; Negative Cache TTL
+;
+IN  NS  ns.stocklist-rice.com.
+
+; web ip
+@   IN  A   192.168.11.30
+
+; dns ip
+ns  IN  A   192.168.11.24
+
+www IN  CNAME   stocklist-rice.com.
+web IN  CNAME   stocklist-rice.com.
+dns IN  CNAME   ns.stocklist-rice.com.

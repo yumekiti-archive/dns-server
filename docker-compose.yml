@@ -1,0 +1,14 @@
+version: '3'
+
+services:
+
+    dns:
+        build: ./
+        tty: true
+        volumes:
+            - ./bind/:/mnt/bind
+
+#    web:
+#        image: httpd:alpine
+#        ports:
+#            - "8080:80"
