@@ -5,6 +5,7 @@ up:
 	$(dc) up --build -d
 	$(dc) exec dns /bin/bash -c "ifconfig >> /mnt/ip.txt"
 	$(dc) exec web /bin/sh -c "ifconfig >> /mnt/ip.txt"
+	$(dc) exec web /bin/sh -c "echo \"nameserver 172.30.0.3\" >> /etc/resolv.conf"
 down:
 	$(dc) down
 rm:

@@ -4,14 +4,14 @@ ENV TZ='Asia/Tokyo'
 
 RUN apt update && apt upgrade -y
 
-RUN apt-get -y install bind9 dnsutils rsyslog net-tools
+RUN apt-get -y install bind9 dnsutils rsyslog net-tools iputils-ping
 
 COPY ./bind/* /etc/bind/
 
-RUN chmod 755 -R /etc/bind && \
-    chmod 644 -R /etc/bind/ && \
+RUN chmod 644 -R /etc/bind/ && \
     chown root:root /etc/bind/db.192 && \
-    chmod 640 /etc/bind/rndc.key
+    chmod 640 /etc/bind/rndc.key && \
+    chmod 755 /etc/bind
 
 # WORKDIR /etc/bind9
 
