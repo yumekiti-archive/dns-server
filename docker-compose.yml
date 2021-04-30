@@ -7,8 +7,14 @@ services:
         tty: true
         volumes:
             - ./bind/:/mnt/bind
-
+            - ./ip.txt/:/mnt/ip.txt
+        networks:
+            - default
 #    web:
 #        image: httpd:alpine
 #        ports:
 #            - "8080:80"
+#        command: apk add net-tools && ifconfig >> /mnt/ip.txt
+networks:
+    default:
+        driver: bridge
