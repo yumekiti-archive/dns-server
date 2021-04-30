@@ -13,8 +13,6 @@ RUN chmod 755 -R /etc/bind && \
     chown root:root /etc/bind/db.192 && \
     chmod 640 /etc/bind/rndc.key
 
-RUN ifconfig >> /mnt/ip.txt
-
 # WORKDIR /etc/bind9
 
 # drw-r-Sr-- 1 root bind    4096 Apr 26 05:08 bind

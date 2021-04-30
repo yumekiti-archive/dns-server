@@ -1,7 +1,9 @@
 dc := docker-compose
 
 up:
+	touch ip.txt
 	$(dc) up --build -d
+	$(dc) exec dns ifconfig >> /mnt/ip.txt
 down:
 	$(dc) down
 rm:
