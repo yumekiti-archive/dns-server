@@ -1,11 +1,13 @@
 dc := docker-compose
 
 up:
+	rm ip.txt
 	touch ip.txt
 	$(dc) up --build -d
 	$(dc) exec dns /bin/bash -c "ifconfig >> /mnt/ip.txt"
+	$(dc) exec dns /bin/bash -c "/etc/init.d/named start"
 	$(dc) exec web /bin/sh -c "ifconfig >> /mnt/ip.txt"
-	$(dc) exec web /bin/sh -c "echo \"nameserver 172.30.0.3\" >> /etc/resolv.conf"
+	$(dc) exec web /bin/sh -c "echo \"nameserver 192.168.200.11\" >> /etc/resolv.conf"
 down:
 	$(dc) down
 rm:

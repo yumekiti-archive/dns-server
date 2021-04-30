@@ -9,8 +9,8 @@ services:
             - ./bind/:/mnt/bind
             - ./ip.txt/:/mnt/ip.txt
         networks:
-            - default
-            - dns
+            default:
+                ipv4_address: 192.168.200.11
             
     web:
         image: httpd:alpine
@@ -19,8 +19,8 @@ services:
         volumes:
             - ./ip.txt/:/mnt/ip.txt
         networks:
-            - default
-            - web
+            default:
+                ipv4_address: 192.168.200.12
 
 networks:
     default:
@@ -29,8 +29,3 @@ networks:
             driver: default
             config:
                 - subnet: 192.168.200.0/24
-                gateway: 192.168.200.1
-    dns:
-        ipv4_address: 192.168.200.11
-    web:
-        ipv4_address: 192.168.200.12
