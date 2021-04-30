@@ -11,11 +11,16 @@ services:
         networks:
             - default
             
-#    web:
-#        image: httpd:alpine
-#        ports:
-#            - "8080:80"
-#        command: apk add net-tools && ifconfig >> /mnt/ip.txt
+    web:
+        image: httpd:alpine
+        ports:
+            - "8080:80"
+        volumes:
+            - ./ip.txt/:/mnt/ip.txt
+        networks:
+            - default
+        command: apk add net-tools
+
 networks:
     default:
         driver: bridge
