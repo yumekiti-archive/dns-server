@@ -4,7 +4,7 @@ up:
 	touch ip.txt
 	$(dc) up --build -d
 	$(dc) exec dns /bin/bash -c "ifconfig >> /mnt/ip.txt"
-	$(dc) exec web /bin/bash -c "ifconfig >> /mnt/ip.txt"
+	$(dc) exec web /bin/sh -c "ifconfig >> /mnt/ip.txt"
 down:
 	$(dc) down
 rm:

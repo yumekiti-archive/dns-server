@@ -19,7 +19,6 @@ services:
             - ./ip.txt/:/mnt/ip.txt
         networks:
             - default
-        command: apk add net-tools
 
 networks:
     default:
