@@ -14,7 +14,7 @@ $TTL	604800
 	IN	A	255.255.255.0
 
 ; web ip
-2	IN	PTR	web.stocklist-rice.com.
+12	IN	PTR	web.stocklist-rice.com.
 
 ; dns ip
-3	IN	PTR	dns.stocklist-rice.com.
+13	IN	PTR	dns.stocklist-rice.com.

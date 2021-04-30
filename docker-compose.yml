@@ -10,6 +10,7 @@ services:
             - ./ip.txt/:/mnt/ip.txt
         networks:
             - default
+            - dns
             
     web:
         image: httpd:alpine
@@ -19,7 +20,17 @@ services:
             - ./ip.txt/:/mnt/ip.txt
         networks:
             - default
+            - web
 
 networks:
     default:
         driver: bridge
+        ipam:
+            driver: default
+            config:
+                - subnet: 192.168.200.0/24
+                gateway: 192.168.200.1
+    dns:
+        ipv4_address: 192.168.200.11
+    web:
+        ipv4_address: 192.168.200.12
