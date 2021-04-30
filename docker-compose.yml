@@ -10,6 +10,7 @@ services:
             - ./ip.txt/:/mnt/ip.txt
         networks:
             - default
+            
 #    web:
 #        image: httpd:alpine
 #        ports:
