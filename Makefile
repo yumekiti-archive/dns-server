@@ -1,8 +1,7 @@
 dc := docker-compose
 
 up:
-	rm ip.txt
-	touch ip.txt
+	bash iptxt.sh
 	$(dc) up --build -d
 	$(dc) exec dns /bin/bash -c "ifconfig >> /mnt/ip.txt"
 	$(dc) exec dns /bin/bash -c "/etc/init.d/named start"
