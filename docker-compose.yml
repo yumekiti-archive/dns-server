@@ -8,6 +8,8 @@ services:
         volumes:
             - ./bind/:/mnt/bind
             - ./ip.txt/:/mnt/ip.txt
+        ports:
+            - "53:53/udp"
         networks:
             default:
                 ipv4_address: 192.168.200.11
