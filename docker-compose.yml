@@ -23,6 +23,17 @@ services:
         networks:
             default:
                 ipv4_address: 192.168.200.12
+        dns:
+            - 192.168.200.11
+
+    ubuntu:
+        image: ubuntu:20.04
+        tty: true
+        networks:
+            default:
+                ipv4_address: 192.168.200.13
+        dns:
+            - 192.168.200.11
 
 networks:
     default:
